@@ -1,0 +1,5 @@
+app.html
+index.html
+package.json
+vite.config.js
+node_modules/
