@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Myokinetics OS — Software & App Ecosystem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #050809;
+      --surface: #0d1418;
+      --surface-strong: #131b1f;
+      --border: rgba(0, 200, 180, 0.18);
+      --cyan: #00c8b4;
+      --cyan-soft: rgba(0, 200, 180, 0.14);
+      --white: #f7fbfc;
+      --grey: #8d9fa6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(180deg, #081113 0%, #050809 100%);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    body, button { font: inherit; }
+
+    .page-shell { max-width: 1180px; margin: 0 auto; padding: 28px 24px 56px; }
+    .site-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 16px 0 24px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 14px; border: 1.4px solid var(--cyan); color: var(--cyan); font-weight: 700; }
+    .nav-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .nav-links a { padding: 10px 14px; border-radius: 999px; font-size: 0.88rem; color: var(--grey); border: 1px solid transparent; transition: all 0.2s ease; }
+    .nav-links a:hover { color: var(--white); border-color: rgba(255,255,255,0.08); }
+
+    .hero { padding: 48px 0 32px; display: grid; gap: 22px; }
+    .eyebrow { color: var(--cyan); letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.78rem; margin-bottom: 16px; }
+    .hero h1 { font-family: 'Rajdhani', sans-serif; font-size: clamp(2.8rem, 5vw, 4.4rem); margin-bottom: 18px; line-height: 1; }
+    .hero p { max-width: 760px; color: var(--grey); margin-bottom: 28px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary, .btn-secondary { padding: 14px 24px; border-radius: 999px; font-weight: 700; letter-spacing: 0.08em; transition: transform 0.2s ease, background 0.2s ease; }
+    .btn-primary { background: var(--cyan); color: #07100f; }
+    .btn-secondary { background: rgba(255,255,255,0.05); color: var(--white); border: 1px solid rgba(255,255,255,0.08); }
+    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); }
+
+    .section { padding: 46px 0; }
+    .section h2 { font-size: clamp(2rem, 3vw, 3rem); margin-bottom: 16px; }
+    .section p { max-width: 700px; color: var(--grey); margin-bottom: 24px; }
+    .module-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .module-card { padding: 26px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.03); box-shadow: 0 24px 70px rgba(0,0,0,0.2); display: grid; gap: 14px; min-height: 240px; }
+    .module-icon { width: 46px; height: 46px; border-radius: 16px; display: grid; place-items: center; background: rgba(0, 200, 180, 0.12); color: var(--cyan); font-weight: 700; font-size: 1rem; }
+    .module-card h3 { margin: 0; font-size: 1.1rem; }
+    .module-card p { color: var(--grey); line-height: 1.7; }
+    .module-card a { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; border-radius: 999px; background: rgba(0, 200, 180, 0.12); color: var(--cyan); font-weight: 700; width: fit-content; }
+
+    .feature-panel { display: grid; gap: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .feature-card { padding: 24px 26px; border-radius: 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); }
+    .feature-card h4 { margin: 0 0 10px; }
+    .feature-card p { color: var(--grey); line-height: 1.75; }
+
+    .footer { padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; color: var(--grey); font-size: 0.92rem; }
+
+    @media (max-width: 960px) {
+      .module-grid, .feature-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .site-header { padding: 16px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark">MK</div>
+        <div>
+          <div class="eyebrow">Merakinetics OS</div>
+          <h1>Software & App Ecosystem</h1>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="merakinetics.html">Merakinetics</a>
+        <a href="app.html">App</a>
+        <a href="payments.html">Preorder</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Software Ecosystem</div>
+      <h1>Every module, every session, one unified OS.</h1>
+      <p>Myokinetics OS connects AI coaching, biometric tracking, nutrition, recovery, and facility intelligence across hardware and mobile apps for a complete movement ecosystem.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="app.html">Open Myokinetics OS</a>
+        <a class="btn-secondary" href="merakinetics.html">View Merakinetics</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>The six modules that define the ecosystem.</h2>
+      <p>Each capability is designed to work as a standalone intelligence layer and to feed the broader Myokinetics OS for deeper system-wide optimization.</p>
+      <div class="module-grid" id="moduleGrid">
+        <div class="module-card">
+          <div class="module-icon">⚠</div>
+          <h3>Loading modules…</h3>
+          <p>Please wait while the ecosystem loads.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Engineered for operator, coach, and athlete workflows.</h2>
+      <div class="feature-panel">
+        <div class="feature-card">
+          <h4>Facility-Wide Visibility</h4>
+          <p>Track machine utilization, session flow, and member performance from one dashboard that scales from boutique studios to high-performance facilities.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Data-Driven Coaching</h4>
+          <p>Live AI coaching cues, progress prediction, and fatigue-aware programming keep every athlete on the right path with less manual oversight.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Mobile + Machine Sync</h4>
+          <p>Start a workout on phone, move to machine display, and continue in AR with seamless session persistence and analytics continuity.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Unified Biomechanical Score</h4>
+          <p>The Myokinetics Score blends torque, symmetry, recovery, and nutrition into a single performance measure for faster decision-making.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Merakinetics. All rights reserved.</span>
+      <span><a href="app.html">Open App</a> · <a href="merakinetics.html">Merakinetics</a></span>
+    </footer>
+  </div>
+
+  <script>
+    const moduleIcon = {
+      dashboard: '📊',
+      training: '🏋️',
+      nutrition: '🥗',
+      biometrics: '💓',
+      recovery: '🛌',
+      'ai-coach': '🤖'
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('./modules.json')
+        .then(response => response.ok ? response.json() : Promise.reject(response.status))
+        .then(modules => {
+          const grid = document.getElementById('moduleGrid');
+          grid.innerHTML = modules.map(module => `
+            <article class="module-card">
+              <div class="module-icon">${moduleIcon[module.id] || '•'}</div>
+              <h3>${module.title}</h3>
+              <p>${module.description}</p>
+              <a href="${module.link}">Open ${module.title}</a>
+            </article>
+          `).join('');
+        })
+        .catch(() => {
+          document.getElementById('moduleGrid').innerHTML = `
+            <div class="module-card">
+              <div class="module-icon">⚠️</div>
+              <h3>Unable to load modules</h3>
+              <p>Refresh the page or open the app directly until the ecosystem data file is available.</p>
+            </div>`;
+        });
+    });
+  </script>
+</body>
+</html>

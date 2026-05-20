@@ -1,0 +1,38 @@
+[
+  {
+    "id": "dashboard",
+    "title": "Dashboard",
+    "description": "Aggregate training, machine status, and live analytics in one command center.",
+    "link": "app.html#dashboard"
+  },
+  {
+    "id": "training",
+    "title": "Training",
+    "description": "AI-driven programs, exercise queues, and adaptive session control built around your performance.",
+    "link": "app.html#training"
+  },
+  {
+    "id": "nutrition",
+    "title": "Nutrition",
+    "description": "Real-time macro targets, hydration tracking, and peri-workout fuel guidance tuned to each session.",
+    "link": "app.html#nutrition"
+  },
+  {
+    "id": "biometrics",
+    "title": "Biometrics",
+    "description": "Live heart rate, symmetry, LiDAR motion capture, and readiness analytics for safer, smarter training.",
+    "link": "app.html#biometrics"
+  },
+  {
+    "id": "recovery",
+    "title": "Recovery",
+    "description": "Sleep, HRV, fatigue, and injury-risk tracking that informs automatic recovery recommendations.",
+    "link": "app.html#recovery"
+  },
+  {
+    "id": "ai-coach",
+    "title": "AI Coach",
+    "description": "Context-aware coaching, tempo correction, and personalized protocol guidance in real time.",
+    "link": "app.html#ai"
+  }
+]

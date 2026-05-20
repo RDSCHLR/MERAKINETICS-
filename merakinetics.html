@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merakinetics — Biomechanical Intelligence Ecosystem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070a0b;
+      --surface: #0f1416;
+      --surface-strong: #141b1f;
+      --border: rgba(0, 200, 180, 0.16);
+      --cyan: #00c8b4;
+      --cyan-soft: rgba(0, 200, 180, 0.14);
+      --white: #f7fbfc;
+      --grey: #8fa4aa;
+      --grey2: #4d5c63;
+      --green: #5dffaa;
+      --yellow: #ffd84d;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(0, 200, 180, 0.06), transparent 35%), linear-gradient(180deg, #091014 0%, #060809 100%);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .page-shell { max-width: 1320px; margin: 0 auto; padding: 28px 28px 64px; }
+    .site-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 0; position: sticky; top: 0; backdrop-filter: blur(18px); background: rgba(7, 10, 11, 0.78); z-index: 20; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-mark { width: 42px; height: 42px; border-radius: 12px; border: 1.4px solid var(--cyan); display: grid; place-items: center; color: var(--cyan); font-weight: 700; letter-spacing: 0.12em; font-size: 0.82rem; }
+    .brand-title { display: grid; gap: 4px; }
+    .brand-title h1 { font-family: 'Rajdhani', sans-serif; font-size: 1.05rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); }
+    .brand-title p { color: var(--grey); font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .nav-links { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .nav-links a { color: var(--grey); font-size: 0.88rem; font-weight: 500; padding: 10px 14px; border-radius: 999px; transition: all 0.2s ease; }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+
+    .hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 32px; align-items: center; padding: 72px 0 60px; }
+    .hero-copy { max-width: 620px; }
+    .eyebrow { color: var(--cyan); letter-spacing: 0.26em; font-size: 0.77rem; text-transform: uppercase; margin-bottom: 18px; }
+    .hero-copy h2 { font-family: 'Rajdhani', sans-serif; font-size: clamp(3rem, 5vw, 4.8rem); line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 24px; }
+    .hero-copy p { max-width: 580px; color: var(--grey); font-size: 1rem; margin-bottom: 32px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 14px 26px; border-radius: 999px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; transition: transform 0.2s ease, background 0.2s ease; }
+    .btn-primary { background: var(--cyan); color: #07100f; border: 1px solid rgba(0, 200, 180, 0.15); }
+    .btn-secondary { background: transparent; border: 1px solid rgba(255,255,255,0.12); color: var(--white); }
+    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); }
+
+    .hero-panel { background: linear-gradient(180deg, rgba(13, 23, 26, 0.98), #070a0b 80%); border: 1px solid rgba(0, 200, 180, 0.14); border-radius: 24px; box-shadow: var(--shadow); padding: 32px; min-height: 520px; display: grid; gap: 24px; }
+    .hero-panel .panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+    .hero-panel .panel-head h3 { margin: 0; font-family: 'Rajdhani', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em; }
+    .hero-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 18px; padding: 22px; display: grid; gap: 12px; }
+    .hero-card span { color: var(--grey); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; }
+    .hero-card strong { display: block; font-size: 2.3rem; color: var(--white); margin-top: 4px; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+    .badge { background: rgba(0, 200, 180, 0.12); border: 1px solid rgba(0, 200, 180, 0.18); border-radius: 999px; padding: 10px 14px; color: var(--cyan); font-size: 0.8rem; font-weight: 700; }
+
+    .section { padding: 48px 0; }
+    .section h3 { font-size: clamp(1.7rem, 3vw, 2.6rem); margin-bottom: 18px; }
+    .section p { max-width: 720px; color: var(--grey); margin-bottom: 28px; }
+    .feature-grid, .module-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .feature-card, .module-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 26px; box-shadow: 0 18px 50px rgba(0,0,0,0.18); display: grid; gap: 14px; }
+    .feature-card .icon, .module-card .icon { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: rgba(0, 200, 180, 0.12); color: var(--cyan); font-size: 1.1rem; }
+    .feature-card h4, .module-card h4 { font-size: 1.05rem; margin: 0; }
+    .feature-card p, .module-card p { color: var(--grey); font-size: 0.95rem; line-height: 1.7; }
+    .module-card a { display: inline-flex; align-items: center; justify-content: center; margin-top: 10px; width: fit-content; padding: 10px 18px; border-radius: 999px; background: rgba(0, 200, 180, 0.12); color: var(--cyan); font-weight: 700; font-size: 0.85rem; }
+
+    .cta-bar { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 22px; padding: 32px; display: grid; grid-template-columns: 1fr auto; gap: 22px; align-items: center; }
+    .cta-bar h4 { margin: 0; font-size: 1.4rem; }
+    .cta-bar p { margin: 6px 0 0; color: var(--grey); max-width: 620px; }
+    .cta-bar .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .footer { padding: 20px 0 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; color: var(--grey); font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer a { color: var(--grey); }
+    .footer a:hover { color: var(--white); }
+
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; }
+      .feature-grid, .module-grid { grid-template-columns: 1fr; }
+      .cta-bar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark">MK</div>
+        <div class="brand-title">
+          <h1>Merakinetics</h1>
+          <p>Biomechanical Intelligence Ecosystem</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="software.html">Ecosystem</a>
+        <a href="app.html">Myokinetics OS</a>
+        <a href="payments.html">Preorder</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Software Ecosystem</div>
+          <h2>Myokinetics OS is the software brain that powers every Merakinetics machine.</h2>
+          <p>One unified platform connecting every machine, every rep, and every biometric data point into a single intelligent training ecosystem. Built for athletes, facilities, and high-performance coaching.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="app.html">Launch the App</a>
+            <a class="btn-secondary" href="software.html">Explore the Ecosystem</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Live AI Performance</span>
+              <h3>Real-time feedback across every session</h3>
+            </div>
+            <div class="badge">Live</div>
+          </div>
+
+          <div class="hero-card">
+            <span>Unified Data Stream</span>
+            <strong>2.4M LiDAR points/sec</strong>
+            <p>Every Merakinetics machine feeds a single neural system for flawless coordination across equipment, members, and sessions.</p>
+          </div>
+
+          <div class="hero-card">
+            <span>Global Machine Sync</span>
+            <strong>iOS · Android · Machine · AR</strong>
+            <p>Start a workout on your phone, continue on the machine, and review analytics on the AR display — with seamless cross-device continuity.</p>
+          </div>
+
+          <div class="hero-badges">
+            <span class="badge">Live Coaching</span>
+            <span class="badge">Predictive Analytics</span>
+            <span class="badge">Biometric Fusion</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <h3>Built around the six core modules you asked for.</h3>
+        <p>Each module is designed to operate independently or as part of a holistic, fully integrated Merakinetics software ecosystem.</p>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon">D</div>
+            <h4>Dashboard</h4>
+            <p>Aggregate session metrics, machine status, and facility health in one command center — always live, always actionable.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">T</div>
+            <h4>Training</h4>
+            <p>AI-generated progressions, program queues, and training flow that adapt to your exact strength curves and machine output.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">N</div>
+            <h4>Nutrition</h4>
+            <p>Real-time macro recommendations, meal timing, hydration cues, and recovery fueling keyed to session intensity.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">B</div>
+            <h4>Biometrics</h4>
+            <p>Live heart rate, symmetry, LiDAR motion capture, and readiness analytics to keep training safe and effective.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">R</div>
+            <h4>Recovery</h4>
+            <p>Sleep, HRV, fatigue, and injury-risk tracking that automatically informs deloads and recovery recommendations.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">AI</div>
+            <h4>AI Coach</h4>
+            <p>Context-aware coaching, tempo correction, and personalized session guidance delivered in real time.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Why Myokinetics OS matters.</h3>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon">1</div>
+            <h4>Unified Biomechanical Intelligence</h4>
+            <p>No more isolated machines. Every device shares motion capture, force, and biometric telemetry to build one intelligence layer.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">2</div>
+            <h4>Adaptive AI Coaching</h4>
+            <p>Our AI engine learns your physiology and adjusts rep tempo, load, and recovery based on real output, not assumptions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">3</div>
+            <h4>AR Correctional Feedback</h4>
+            <p>Live posture and form cues appear when and where you need them — on screen, on machine displays, or in AR overlays.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">4</div>
+            <h4>Facility & Coaching Visibility</h4>
+            <p>Gym operators get utilization, risk flags, and program performance across the entire facility in a single pane.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">5</div>
+            <h4>Elite Scoring Infrastructure</h4>
+            <p>Your Myokinetics Score blends torque, balance, range of motion, recovery, and nutrition into a single performance metric.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-bar">
+        <div>
+          <h4>Ready to make your gym smarter?</h4>
+          <p>Merakinetics OS is already wired into every machine, making data-driven training available for every member and every coach.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn-primary" href="software.html">Software Ecosystem</a>
+          <a class="btn-secondary" href="app.html">Open Myokinetics OS</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 Merakinetics. All rights reserved.</span>
+      <span><a href="app.html">Myokinetics OS</a> · <a href="software.html">Software Ecosystem</a></span>
+    </footer>
+  </div>
+</body>
+</html>
